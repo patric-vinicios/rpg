@@ -32,6 +32,7 @@ defmodule Api.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      # phoenix default config
       {:phoenix, "~> 1.7.10"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},
@@ -44,7 +45,13 @@ defmodule Api.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+
+      # security
+      {:sobelow, "~> 0.13", only: [:dev, :test], runtime: false},
+
+      # linter
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end
 
