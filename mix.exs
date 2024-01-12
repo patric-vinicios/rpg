@@ -48,7 +48,10 @@ defmodule Api.MixProject do
       {:plug_cowboy, "~> 2.5"},
 
       # security
-      {:sobelow, "~> 0.13", only: [:dev, :test], runtime: false}
+      {:sobelow, "~> 0.13", only: [:dev, :test], runtime: false},
+
+      # linter
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end
 
