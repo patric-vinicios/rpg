@@ -51,7 +51,10 @@ defmodule Api.MixProject do
       {:sobelow, "~> 0.13", only: [:dev, :test], runtime: false},
 
       # linter
-      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+
+      # soft delete
+      {:ecto_soft_delete, "~>2.0.2"}
     ]
   end
 
