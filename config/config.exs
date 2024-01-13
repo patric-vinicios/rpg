@@ -11,6 +11,10 @@ config :api,
   ecto_repos: [Api.Repo],
   generators: [timestamp_type: :utc_datetime]
 
+config :api, Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :api, ApiWeb.Endpoint,
   url: [host: "localhost"],
