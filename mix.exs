@@ -54,7 +54,10 @@ defmodule Api.MixProject do
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
 
       # soft delete
-      {:ecto_soft_delete, "~>2.0.2"}
+      {:ecto_soft_delete, "~>2.0.2"},
+
+      # tests
+      {:ex_machina, "~> 2.7.0", only: :test}
     ]
   end
 
