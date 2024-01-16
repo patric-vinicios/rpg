@@ -4,8 +4,10 @@ elixir:
 otp_release:
   - 26
 
-script:
-  - MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json
+env:
+  - MIX_ENV=test
+
+script: mix coveralls
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
