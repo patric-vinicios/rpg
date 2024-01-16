@@ -22,7 +22,7 @@ defmodule Api.Users.User do
   @foreign_key_type :binary_id
 
   @fields [:username, :email, :password_hash, :role]
-  @required_fields @fields -- [:role]
+  @required_fields [:username, :email, :password_hash]
 
   schema "users" do
     field :username, :string
