@@ -31,6 +31,8 @@ jobs:
           mix local.hex --force
           mix deps.get
           mix ecto.create
+      - name: ==> 🔎 Integrating test
+        run: mix coveralls.html --umbrella
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:

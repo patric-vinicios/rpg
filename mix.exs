@@ -9,7 +9,14 @@ defmodule Api.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -57,7 +64,10 @@ defmodule Api.MixProject do
       {:ecto_soft_delete, "~>2.0.2"},
 
       # tests
-      {:ex_machina, "~> 2.7.0", only: :test}
+      {:ex_machina, "~> 2.7.0", only: :test},
+
+      # test coverage
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 
