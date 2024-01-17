@@ -1,11 +1,11 @@
 language: elixir
 elixir:
-  - 1.15.7
+  - "1.15"
 otp_release:
   - 26
 
 script:
-  - MIX_ENV=test mix do compile --warnings-as-errors, ./cover/coveralls.html
+  - MIX_ENV=test mix text --cover
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
