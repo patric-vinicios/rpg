@@ -42,6 +42,7 @@ jobs:
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          CODECOV_PATH: ./cover/
     services:
       pg:
         image: postgres:13-alpine
