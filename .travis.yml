@@ -5,7 +5,7 @@ otp_release:
   - 26
 
 script:
-  - MIX_ENV=test mix text --cover
+  - MIX_ENV=test mix coveralls.json
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
