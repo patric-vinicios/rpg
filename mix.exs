@@ -67,7 +67,10 @@ defmodule Api.MixProject do
       {:ex_machina, "~> 2.7.0", only: :test},
 
       # test coverage
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+
+      # password hashing
+      {:argon2_elixir, "~> 4.0"}
     ]
   end
 
