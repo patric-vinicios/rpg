@@ -1,13 +1,18 @@
 name: CI-Tests
 
-on: pull_request
+on:
+  push:
+    branches:
+      - develop
+
+  pull_request:
 
 jobs:
   tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        elixir: [1.14]
+        elixir: [1.15]
         otp: [26]
     steps:
       - uses: actions/checkout@v2
@@ -32,11 +37,15 @@ jobs:
           mix deps.get
           mix ecto.create
       - name: ==> 🔎 Integrating test
-        run: mix coveralls.html --umbrella
+        run: MIX_ENV=test mix coveralls.json
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          CODECOV_PATH: ./cover/
+        run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov -t ${{ secrets.CODECOV_TOKEN }}
     services:
       pg:
         image: postgres:13-alpine

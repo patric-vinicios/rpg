@@ -10,7 +10,7 @@ defmodule Api.Users.UserTest do
       params = %{
         username: "master_user",
         email: "master_user@master.com",
-        password_hash: "123456",
+        password: "12345678",
         role: "admin"
       }
 
@@ -21,7 +21,7 @@ defmodule Api.Users.UserTest do
       assert %Ecto.Changeset{valid?: true} = User.changeset(params)
     end
 
-    for field <- [:username, :email, :password_hash] do
+    for field <- [:username, :email, :password] do
       test "should return an invalid changeset if #{field} is missing", %{params: params} do
         assert %Ecto.Changeset{valid?: false} =
                  params
@@ -36,6 +36,15 @@ defmodule Api.Users.UserTest do
       assert %Ecto.Changeset{valid?: false} =
                params
                |> Map.put(:email, invalid_email)
+               |> User.changeset()
+    end
+
+    test "should return an invalid changeset if password is not valid", %{params: params} do
+      invalid_password = "invalid"
+
+      assert %Ecto.Changeset{valid?: false} =
+               params
+               |> Map.put(:password, invalid_password)
                |> User.changeset()
     end
   end

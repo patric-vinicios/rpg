@@ -26,6 +26,8 @@ config :api, ApiWeb.Endpoint,
   pubsub_server: Api.PubSub,
   live_view: [signing_salt: "Io18dBA8"]
 
+config :api, :hash_lib, Api.Providers.Hash.Argon2
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
