@@ -1,18 +1,8 @@
-# Api
+# RPG Api
 
-To start your Phoenix server:
+## Prometheus & Grafana Configuration
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+As Docker runs differently between the S.Os, it is used `network_mode: host` to Docker access the machine localhost in Linux.
+In Windows and Mac, you could remove it and add `docker.internal.host` in `prometheus.yml`. This is for development purpose and will not work in production environment outside of Docker Desktop for Windows and Mac.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+You can also try `docker.for.mac.localhost` for Mac and `docker.for.win.localhost` for Windows.
