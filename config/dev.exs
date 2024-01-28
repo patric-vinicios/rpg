@@ -6,7 +6,7 @@ config :api, Api.Repo,
   password: "postgres",
   hostname: "localhost",
   database: "api_dev",
-  port: 54320,
+  port: 54_320,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -26,6 +26,18 @@ config :api, ApiWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "tXwuROmub+kJHESA6jW1GWil7NrhhG3MGP0f9x88u0klZD396BaXb85y0JKd4JV3",
   watchers: []
+
+config :api, Api.PromEx,
+  disabled: false,
+  manual_metrics_start_delay: :no_delay,
+  drop_metrics_groups: [],
+  grafana: [
+    username: "admin",
+    password: "admin",
+    upload_dashboard_on_start: true,
+    host: "http://localhost:3000"
+  ],
+  metrics_server: :disabled
 
 # ## SSL Support
 #
