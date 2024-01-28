@@ -70,7 +70,10 @@ defmodule Api.MixProject do
       {:excoveralls, "~> 0.10", only: :test},
 
       # password hashing
-      {:argon2_elixir, "~> 4.0"}
+      {:argon2_elixir, "~> 4.0"},
+
+      # prometheus and grafana
+      {:prom_ex, "~> 1.9.0"}
     ]
   end
 
