@@ -5,6 +5,7 @@
     "lib/api.ex",
     "lib/api/application.ex",
     "lib/api/repo.ex",
+    "lib/api/prom_ex.ex",
     "lib/api_web/endpoint.ex",
     "lib/api_web/gettext.ex",
     "lib/api_web/views/error_helpers.ex"
