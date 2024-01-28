@@ -8,6 +8,7 @@ defmodule Api.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      Api.PromEx,
       ApiWeb.Telemetry,
       Api.Repo,
       {DNSCluster, query: Application.get_env(:api, :dns_cluster_query) || :ignore},
